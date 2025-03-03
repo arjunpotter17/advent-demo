@@ -312,7 +312,7 @@ export const content: ContentData = {
       },
       {
         name: "Nataraj M",
-        position: "Partner & Head of Manufacturing",
+        position: "Partner & Head of Manufacture and Planning",
         image: "/images/Advent/partners/natraj.webp",
         bio: "Strategic sales leader",
       },
