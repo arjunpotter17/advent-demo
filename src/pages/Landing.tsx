@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { content } from '../data/content';
 import Button from '@/components/ui/Button';
 import ImageCarousel from '@/components/ui/ImageCarousel';
+import Link from 'next/link';
 
 const Landing = () => {
   const { landing } = content;
@@ -78,7 +79,7 @@ const Landing = () => {
                 src={landing.intro.image}
                 alt="Granite Craftsmanship"
                 fill
-                className="object-cover w-full"
+                className="object-contain min-w-full transform rotate-[-90deg] scale-150"
               />
             </motion.div>
           </div>
@@ -100,45 +101,36 @@ const Landing = () => {
           <div className="relative">
             <div className="flex space-x-6 overflow-x-auto pb-8 scrollbar-hide">
               {content.products.categories.map((category) => (
-                <motion.div
+                <Link
                   key={category.name}
-                  className="flex-none w-[300px] relative h-[200px] rounded-lg overflow-hidden"
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ duration: 0.2 }}
+                  href={`/products/${category.name.toLowerCase().replace(/\s+/g, '-')}`}
                 >
-                  <div className="relative w-full h-full">
-                    <Image
-                      src={category.image}
-                      alt={category.name}
-                      fill
-                      className="object-cover rotate-[-90deg] scale-150"
-                      style={{ transformOrigin: 'center' }}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-black/20 flex flex-col justify-end p-6">
-                      <h3 className="text-xl font-bold text-white mb-2">
-                        {category.name}
-                      </h3>
-                      <p className="text-gray-200 text-sm">
-                        {category.description}
-                      </p>
+                  <motion.div
+                    className="flex-none w-[300px] relative h-[200px] rounded-lg overflow-hidden cursor-pointer"
+                    whileHover={{ scale: 1.02 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <div className="relative w-full h-full">
+                      <Image
+                        src={category.image}
+                        alt={category.name}
+                        fill
+                        className="object-cover rotate-[-90deg] scale-150"
+                        style={{ transformOrigin: 'center' }}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-black/20 flex flex-col justify-end p-6">
+                        <h3 className="text-xl font-bold text-white mb-2">
+                          {category.name}
+                        </h3>
+                        <p className="text-gray-200 text-sm">
+                          {category.description}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                </motion.div>
+                  </motion.div>
+                </Link>
               ))}
             </div>
-            
-            {/* Optional: Add custom scrollbar or navigation arrows
-            <div className="absolute -bottom-2 left-0 w-full">
-              <div className="h-1 bg-gray-200 dark:bg-gray-700 rounded-full">
-                <motion.div
-                  className="h-full bg-sky-500 rounded-full"
-                  style={{
-                    width: '25%',
-                    transformOrigin: 'left'
-                  }}
-                />
-              </div>
-            </div> */}
           </div>
         </div>
       </section>
@@ -222,7 +214,7 @@ const Landing = () => {
               Learn More
             </Button>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
             {content.about.team.map((member) => (
               <motion.div
                 key={member.name}
@@ -245,9 +237,6 @@ const Landing = () => {
                 <p className="text-sky-500 dark:text-sky-400 font-medium mb-2">
                   {member.position}
                 </p>
-                {/* <p className="text-gray-600 dark:text-gray-400 text-sm">
-                  {member.bio}
-                </p> */}
               </motion.div>
             ))}
           </div>

@@ -48,7 +48,7 @@ const Footer = () => {
           </div>
 
           {/* Social Links */}
-          <div>
+          {/* <div>
             <h3 className="text-gray-900 dark:text-white font-semibold mb-4">Follow Us</h3>
             <div className="flex space-x-4">
               <a
@@ -93,7 +93,7 @@ const Footer = () => {
                 </svg>
               </a>
             </div>
-          </div>
+          </div> */}
         </div>
 
         <div className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-700">

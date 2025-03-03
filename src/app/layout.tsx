@@ -5,8 +5,11 @@ import Footer from '@/components/Footer';
 import '@/styles/globals.css';
 
 export const metadata: Metadata = {
-  title: 'Granite Elite - Premium Granite Solutions',
+  title: 'Advent Stones - Premium Granite Solutions',
   description: 'Transform your space with elegant, durable granite surfaces. Expert craftsmanship and quality materials.',
+  icons: {
+    icon: '/images/Advent/advent_logo.svg',
+  },
 };
 
 export default function RootLayout({
