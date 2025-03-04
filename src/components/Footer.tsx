@@ -1,9 +1,11 @@
+"use client"
 import Link from 'next/link';
 import { content } from '../data/content';
 import Image from 'next/image';
-
+import { useTheme } from './ThemeProvider';
 const Footer = () => {
   const { company } = content;
+  const { theme } = useTheme();
   
   const quickLinks = [
     { name: 'Home', href: '/' },
@@ -19,7 +21,7 @@ const Footer = () => {
           {/* Company Info */}
           <div>
             <Image
-              src={company.logo}
+               src={theme === "dark" ? company.logo_white : company.logo}
               alt={company.name}
               width={150}
               height={50}

@@ -32,6 +32,7 @@ export interface AboutContent {
 export interface CompanyInfo {
   name: string;
   logo: string;
+  logo_white: string;
   phone: string;
   email: string;
   address: string;

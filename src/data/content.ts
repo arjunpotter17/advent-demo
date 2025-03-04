@@ -4,6 +4,7 @@ export const content: ContentData = {
   company: {
     name: "Advent Stones Calibration Pvt Ltd",
     logo: "/images/Advent/advent_logo.svg",
+    logo_white: "/images/Advent/advent_logo_white.svg",
     phone: "+91 - 9886765133 / +91 8970535109",
     email: "info@adventstones.com",
     address: `ADVENT STONE CALIBRATION PVT LTD

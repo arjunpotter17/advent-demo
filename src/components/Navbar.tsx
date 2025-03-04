@@ -2,15 +2,17 @@
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { content } from "../data/content";
-import ThemeToggle from "./ThemeToggle";
+import { ThemeToggle } from "./ThemeToggle";
 import Link from "next/link";
 import Image from "next/image";
 import Button from "./ui/Button";
+import { useTheme } from "./ThemeProvider";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
   const { company } = content;
+  const {theme} = useTheme();
 
   const menuItems = [
     { path: "/", label: "Home" },
@@ -27,7 +29,7 @@ const Navbar = () => {
             <Link href="/" className="flex items-center gap-x-3">
               <Image
                 className="h-[40px] w-auto"
-                src={company.logo}
+                src={theme === "dark" ? company.logo_white : company.logo}
                 alt={company.name}
                 width={100}
                 height={100}
